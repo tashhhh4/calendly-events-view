@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Theme</title>
+    <style>
+
+    /* Variables */
+    :root {
+      --main-bg-color: rgb(226,10,197);
+      --main-bg: linear-gradient(0deg, rgba(226,10,197,1) 0%, rgba(253,187,45,1) 100%);
+      --day-width: 300px;
+      --day-heading-width: 300px;
+      --day-time-width: 30px;
+      --day-main-width: 270px;
+      --day-hour-height: 50px;
+      --main-text-color: #fff;
+      --day-bg-color: #13002778;
+    }
+
+      /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    li, ul {
+        list-style: none;
+    }
+
+    /* Profile Picture & Heading */
+    .profile-picture {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid #ddd;
+      object-fit: cover;
+    }
+
+    /* Carousel */
+    .carousel {
+      width: 100%; /* Adjust as needed */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory; /* Enables horizontal snapping */
+      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+    .carousel-list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .carousel-item {
+      flex: 0 0 auto; /* Prevents shrinking or growing */
+      width: 300px; /* Adjust the width based on your design */
+      margin-right: 10px; /* Optional: space between items */
+      scroll-snap-align: start; /* Aligns each item to the start of the container */
+      background-color: #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+    .carousel {
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .carousel-container {
+      display: flex;
+      align-items: center;
+    }
+    .carousel-prev, .carousel-next {
+      background-color: #00000000;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    /* Calendar Style */
+    main {
+      background: var(--main-bg-color);
+      background: var(--main-bg);
+      color: var(--main-text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendar .day {
+      background: var(--day-bg-color);
+      border-radius: 20px;
+    }
+    .calendar .day-date {
+      padding-right: 8px;
+      display: inline-block;
+      width: calc(var(--day-heading-width) * .1);
+      color: #fff5b1;
+    }
+    .calendar .day-weekday {
+      font-weight: normal;
+      display: inline-block;
+      text-align: center;
+      width: calc(var(--day-heading-width) * .7)
+    }
+
+    /* Timetable */
+    .time-table {
+      position: relative;
+      margin-top: 20px;
+    }
+    .time-table table {
+      border-collapse: collapse;
+    }
+    .time-table .time-mini {
+      font-size: 12px;
+      font-weight: lighter;
+      display: block;
+      position: relative;
+      top: -9px;
+      left: -8px;
+    }
+    .time-table .time-grid {
+      border-top: 1px dashed #ffffff66;
+      width: var(--day-main-width);
+      height: var(--day-hour-height);
+    }
+    .time-table .time-grid.last {
+      height: 2px;
+    }
+    
+    /* Events */
+    .event {
+      position: absolute;
+      width: calc(var(--day-main-width) - 20px);
+      border-radius: 8px;
+      border: 3px solid #e8d71c;
+      left: 10px;
+      font-size: 14px;
+    }
+    .event.lunch {
+      border-color: #00ffff;
+      top: calc(var(--day-hour-height) * 4);
+      height: calc(var(--day-hour-height) * 2);
+    }
+
+    /* Sample Individual Events */
+    /*
+    #event_01 {
+      top: calc(var(--day-hour-height) * 1);
+      height: calc(var(--day-hour-height) / 2);
+    }
+    #event_02 {
+      top: calc(var(--day-hour-height) * 8);
+      height: calc(var(--day-hour-height) * 2);r
+    }*/
+
+
+    </style>
+</head>
+<body>
+
+  <main>
+    <img src="Bob_halloween_edited.png" alt="Bob" class="profile-picture">
+    <h1>October 2023</h1>
+
+    <div class="carousel-container">
+    <button class="carousel-prev" onclick="scrollCarousel(-1)">🞀</button>
+    
+    <div class="carousel calendar">
+
+      <ul class="carousel-list">
+        <li class="carousel-item day">
+          <h3><span class="day-date">1.</span><span class="day-weekday">Monday</span></h3>
+          
+          <div class="time-table">
+            <!-- Timetable Bottom Layer -->
+            <div class="bottom">
+              <table>
+                <tr><td class="time-mini">8</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">9</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">10</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">11</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">12</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">13</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">14</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">15</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">16</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">17</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">18</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">19</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">20</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">21</td><td class="time-grid"></td></tr>
+                <tr><td class="time-mini">22</td><td class="time-grid last"></td></tr>
+              </table>
+            </div>
+
+            <div class="top">
+              <!-- Lunch Break Event -->
+              <!--
+              <dir class="event lunch">Lunch Break</dir>
+              -->
+              <!-- Sample Individual Events -->
+              <!--
+              <div id="event_01" class="event">9:00 - 9:30 -- Bob is Busy</div>
+              <div id="event_02" class="event">16:00 - 18:00 Bob is Busy</div>
+              -->
+            </div>
+          </div>
+
+          
+        </li>
+        <li class="carousel-item day">Item 2</li>
+        <li class="carousel-item day">Item 3</li>
+        <li class="carousel-item day">Item 4</li>
+        <li class="carousel-item day">Item 5</li>
+      </ul>
+      
+    </div>
+    
+    <button class="carousel-next" onclick="scrollCarousel(1)">🞂</button>
+  </div>
+ </main>
+<script>
+  function scrollCarousel(direction) {
+  const carousel = document.querySelector('.carousel');
+  const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+  
+  // Scroll the carousel by one item width in the given direction
+  carousel.scrollBy({
+    left: direction * itemWidth, // Adjusts the scroll position
+    behavior: 'smooth' // Smooth scroll
+  });
+}
+</script>
+
+</body>
+</html>

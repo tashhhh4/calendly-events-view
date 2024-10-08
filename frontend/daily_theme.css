@@ -1,0 +1,184 @@
+ /* Variables */
+ :root {
+    --main-bg-color: rgb(226,10,197);
+    --main-bg: linear-gradient(0deg, rgba(226,10,197,1) 0%, rgba(253,187,45,1) 100%);
+    --day-width: 300px;
+    --day-heading-width: 300px;
+    --day-time-width: 30px;
+    --day-main-width: 270px;
+    --day-hour-height: 50px;      /* The vertical space between the hours on the calendar */    
+    --event-30m-height: 25px;     /* The height of a half-hour-long event (=half of the above value) */
+    --event-l-offset: 10px;       /* Nudge the events to the left to center them on the calendar */
+    --main-text-color: #fff;
+    --pp-border-color: #130027d1  ;
+    --header-text-color: #130027b8;
+    --day-bg-color: #13002778;
+  }
+
+    /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  li, ul {
+      list-style: none;
+  }
+
+  /* Page */
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  /* Profile Picture & Header */
+  header {
+    display: flex;
+    align-items: center;
+    color: var(--header-text-color);
+    justify-content: center;
+    gap: 40px;
+    font-size: 40px;
+  }
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px double var(--pp-border-color);
+    object-fit: cover;
+  }
+
+  /* Carousel */
+  .carousel {
+    width: calc(100vw - 10rem); /* Adjust as needed */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* Enables horizontal snapping */
+    scroll-behavior: smooth; /* Smooth scrolling */
+  }
+  .carousel-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .carousel-item {
+    flex: 0 0 auto; /* Prevents shrinking or growing */
+    width: 300px; /* Adjust the width based on your design */
+    margin-right: 10px; /* Optional: space between items */
+    scroll-snap-align: start; /* Aligns each item to the start of the container */
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .carousel-container {
+    display: flex;
+    align-items: center;
+  }
+  .carousel-prev, .carousel-next {
+    background-color: #00000000;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  /* Calendar Style */
+  main {
+    background: var(--main-bg-color);
+    background: var(--main-bg);
+    color: var(--main-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .calendar {
+    overflow-y: hidden;
+  }
+  .calendar .day {
+    background: var(--day-bg-color);
+    border-radius: 20px;
+  }
+  .calendar .day.weekend-true {
+    opacity: 50%;
+  }
+  .calendar .day.past-true {
+    opacity: 50%;
+  }
+  .calendar .day-date {
+    padding-right: 8px;
+    display: inline-block;
+    width: calc(var(--day-heading-width) * .1);
+    color: #fff5b1;
+  }
+  .calendar .day-weekday {
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+    width: calc(var(--day-heading-width) * .7)
+  }
+
+  /* Timetable */
+  .time-table {
+    position: relative;
+    margin-top: 20px;
+    font-family: sans-serif;
+  }
+  .time-table table {
+    border-collapse: collapse;
+  }
+  .time-table .time-mini {
+    font-size: 12px;
+    font-weight: lighter;
+    display: block;
+    position: relative;
+    top: -9px;
+    left: -8px;
+  }
+  .time-table .time-grid {
+    border-top: 1px dashed #ffffff66;
+    width: var(--day-main-width);
+    height: var(--day-hour-height);
+  }
+  .time-table .time-grid.last {
+    height: 2px;
+  }
+  
+  /* Events */
+  .event {
+    position: absolute;
+    width: calc(var(--day-main-width) - 20px);
+    border-radius: 8px;
+    border: 3px solid #e8d71c;
+    background-color: #e8d71c22;
+    left: var(--event-l-offset);
+    top: 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .event.lunch {
+    border-color: #00ffff;
+    top: calc(var(--day-hour-height) * 4);
+    height: calc(var(--day-hour-height) * 2);
+    font-size: 20px;
+    background-color: #00ffff22;
+  }
+  .event .description {
+    display: inline-block;
+    padding-left: 18px;
+    color: #ffffffbb;
+    font-size: 12px;
+    font-weight: normal;
+  }

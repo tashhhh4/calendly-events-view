@@ -1,0 +1,12 @@
+services:
+  flask:
+    build: .
+    environment:
+      FLASK_ENV: "development"
+      DATA_URL: "$DATA_URL"
+      CALENDLY_LINK: "$CALENDLY_LINK"
+      NAME: "$NAME"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app

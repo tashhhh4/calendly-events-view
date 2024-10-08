@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="daily_theme.css">
+    <title id="title_target">Booked Events:</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+</head>
+<body>
+    
+    <main>
+      <header id="header_target"></header>
+      <div id="calendar_target"></div>
+    </main>
+
+</body>
+
+<!-- Template for the Page Title -->
+<script id="title_template" type="x-tmple-mustache">
+  Booked Events: {{company}}
+</script>
+
+<!-- Template for Portrait, Month, and Year -->
+<script id="header_template" type="x-tmpl-mustache">
+  <img src="images/profile.png" alt="{{name}}" class="profile-picture">
+  <h1><span id="month_target">{{month_name}}</span> <span id="year_target">{{year}}</span></h1>
+</script>
+
+<!-- Template for the Calendar -->
+<script id="calendar_template" type="x-tmpl-mustache">
+  <div class="carousel-container">
+    <button class="carousel-prev" onclick="scrollCarousel(-1)">🞀</button>
+
+    <div id="carousel" class="carousel calendar">
+
+      <ul class="carousel-list">
+        {{#days}}
+        <li class="carousel-item day weekend-{{is_weekend}} past-{{is_past}}">
+          <h3><span class="day-date">{{date}}.</span><span class="day-weekday">{{weekday}}</span></h3>
+
+          <div class="time-table">
+            <!-- Timetable Bottom Layer -->
+            <div class="bottom">
+              <table>
+                {{#BG_HOURS}}
+                <tr><td class="time-mini">{{hour}}</td><td class="time-grid"></td></tr>
+                {{/BG_HOURS}}
+              </table>
+            </div>
+
+            <!-- Events Top Layer -->
+            <div class="top">
+              <div class="event lunch">Lunch Break</div>
+              {{#events}}
+              <div class="event" style="top: calc({{start_offset}} * var(--day-hour-height)); height: calc({{length}} / 30 * (var(--event-30m-height)));">{{start_time}} - {{end_time}}<span class="description">{{name}} is busy!</span></div>
+              {{/events}}
+            </div>
+          </div>
+        </li>
+        {{/days}}
+      </ul>
+    </div>
+
+    <button class="carousel-next" onclick="scrollCarousel(1)">🞂</button>
+  </div>
+</script>
+
+<script src="calendar.js" defer></script>
+<script src="carousel.js" defer></script>
+<script src="init.js" defer></script>
+
+</html>
