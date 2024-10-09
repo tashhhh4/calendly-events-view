@@ -11,9 +11,15 @@ This is also only designed to be run from a local file in the web browser. To ru
 ## Screenshot
 ![calendar viewer running in firefox on my computer](/calendar_screenshot_01.png "Calendly Event Viewer")
 
-## How to run
-The app is run by opening `frontend/calendar.html` in a web browser.
+## Views
+### Main view
+Open `frontend/calendar.html` in a web browser.
 
+### Testing view
+After starting up the project, go to `localhost:5000/TEST/calendar` in a web browser.
+This lets you view the JSON data that gets sent to `frontend/calendar.html`.
+
+## How to run
 You need docker installed.
 Create a file called .env with the following values:
 
