@@ -6,8 +6,14 @@ Some parameters have been assumed from personal knowledge and hard-coded into th
 
 *Limitations* - The data comes from a shared view in which the Calendly user has already chosen to expose specific calendar data. The app cannot show dates outside of that time frame. Since this view is based on available booking times, it cannot show you any information about events the user may have planned on days when they are not available for meetings such as weekends, and days in the past.
 
+This is also only designed to be run from a local file in the web browser. To run it you open `frontend/calendar.html`.
+
+## Screenshot
+![calendar viewer running in firefox on my computer](/calendar_screenshot01.png "Calendly Event Viewer")
 
 ## How to run
+The app is run by opening `frontend/calendar.html` in a web browser.
+
 You need docker installed.
 Create a file called .env with the following values:
 
