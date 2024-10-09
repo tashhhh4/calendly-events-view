@@ -9,7 +9,7 @@ Some parameters have been assumed from personal knowledge and hard-coded into th
 This is also only designed to be run from a local file in the web browser. To run it you open `frontend/calendar.html`.
 
 ## Screenshot
-![calendar viewer running in firefox on my computer](/calendar_screenshot01.png "Calendly Event Viewer")
+![calendar viewer running in firefox on my computer](/calendar_screenshot_01.png "Calendly Event Viewer")
 
 ## How to run
 The app is run by opening `frontend/calendar.html` in a web browser.
